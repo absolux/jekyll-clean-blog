@@ -1,0 +1,38 @@
+---
+layout: page
+---
+
+{% for post in paginator.posts %}
+<div class="post-preview">
+	<a href="{{ post.url | relative_url }}">
+			<h2 class="post-title">{{ post.title | escape }}</h2>
+			{% if post.excerpt %}<h3 class="post-subtitle">{{ post.excerpt }}</h3>{% endif %}
+	</a>
+	<p class="post-meta">
+		Posted by
+		<a href="#">{{ post.author | default: "Start Bootstrap" | escape }}</a>
+		on {{ post.date | date: "%b %-d, %Y" }}
+	</p>
+</div>
+<hr>
+{% endfor %}
+
+<!-- Pager -->
+<ul class="pager">
+	{% if paginator.previous_page %}
+	<li class="next">
+			<a href="{{ paginator.previous_page_path }}">
+				Newer Posts
+				<i class="fa fa-long-arrow-right"></i>
+			</a>
+	</li>
+	{% endif %}
+	{% if paginator.next_page %}
+	<li class="previous">
+			<a href="{{ paginator.next_page_path }}">
+				<i class="fa fa-long-arrow-left"></i>
+				Older Posts
+			</a>
+	</li>
+	{% endif %}
+</ul>
