@@ -21,7 +21,7 @@ layout: page
 <ul class="pager">
 	{% if paginator.previous_page %}
 	<li class="next">
-			<a href="{{ paginator.previous_page_path }}">
+			<a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">
 				Newer Posts
 				<i class="fa fa-long-arrow-right"></i>
 			</a>
@@ -29,7 +29,7 @@ layout: page
 	{% endif %}
 	{% if paginator.next_page %}
 	<li class="previous">
-			<a href="{{ paginator.next_page_path }}">
+			<a href="{{ paginator.next_page_path | prepend: site.baseurl }}">
 				<i class="fa fa-long-arrow-left"></i>
 				Older Posts
 			</a>
